@@ -1,0 +1,29 @@
+name: Build Image and Push to Docker Hub
+
+# Env variable
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+
+on:
+  push:
+    branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+jobs:
+
+  build-push-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login into Docker Hub
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag $DOCKER_USER/guestbook-go:$(date +%s)
+    
+    - name: Push image to Docker Hub
+      run: docker push $DOCKER_USER/guestbook-go:$(date +%s)
