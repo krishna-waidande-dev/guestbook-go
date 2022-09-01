@@ -22,7 +22,7 @@ This example assumes that you have a working cluster. See the [Getting Started G
 
 **Tip:** View all the `kubectl` commands, including their options and descriptions in the [kubectl CLI reference](https://kubernetes.io/docs/user-guide/kubectl-overview/).
 
-### Step One: Create the Redis master pod<a id="step-one"></a>
+### Step One: Create the Redis master pod <a id="step-one"></a>
 
 Use the `examples/guestbook-go/redis-master-controller.json` file to create a [replication controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) and Redis master [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). The pod runs a Redis key-value server in a container. Using a replication controller is the preferred way to launch long-running pods, even for 1 replica, so that the pod benefits from the self-healing mechanism in Kubernetes (keeps the pods alive).
 
@@ -269,3 +269,4 @@ Tip: To turn down your Kubernetes cluster, follow the corresponding instructions
 <!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
 [![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/examples/guestbook-go/README.md?pixel)]()
 <!-- END MUNGE: GENERATED_ANALYTICS -->
+
