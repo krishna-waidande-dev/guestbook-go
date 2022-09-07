@@ -4,6 +4,7 @@ name: Build Image and Push to Docker Hub
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+  IMG_TAG: ''
 
 on:
   push:
